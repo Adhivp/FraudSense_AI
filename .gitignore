@@ -1,0 +1,50 @@
+Fraudsense_venv
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# macOS
+.DS_Store
+
+# Virtual Environment
+venv/
+env/
+ENV/
+*.egg-info/
+*.egg
+*.py[cod]
+
+# Streamlit
+.streamlit/
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# PyCharm
+.idea/
+
+# VSCode
+.vscode/
+
+# Logs
+*.log
+
+# Test Coverage
+.coverage
+*.coverage
+*.hypothesis/
+.pytest_cache/
+
+# Migrations
+migrations/
+
+# Build
+build/
+dist/
+
+
+# Environment files
+*.env
+*.venv
