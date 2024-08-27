@@ -15,7 +15,7 @@ st.set_page_config(
 )
 
 # Splash Screen
-st.image("images/FraudSense_logo.jpeg", width=400)
+st.image("images/FraudSense_Logo.jpeg", width=400)
 st.markdown("<p style='text-align: center;'>Securing your web experience</p>", unsafe_allow_html=True)
 time.sleep(3)
 
