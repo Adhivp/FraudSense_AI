@@ -1,7 +1,3 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/azure/functions-action
-# More GitHub Actions for Azure: https://github.com/Azure/actions
-# More info on Python, GitHub Actions, and Azure Functions: https://aka.ms/python-webapps-actions
-
 name: Build and deploy Python project to Azure Function App - FraudSense-AI
 
 on:
@@ -11,8 +7,8 @@ on:
   workflow_dispatch:
 
 env:
-  AZURE_FUNCTIONAPP_PACKAGE_PATH: '.' # set this to the path to your web app project, defaults to the repository root
-  PYTHON_VERSION: '3.11' # set this to the python version to use (supports 3.6, 3.7, 3.8)
+  AZURE_FUNCTIONAPP_PACKAGE_PATH: './release.zip' # Set this to the path to your zip file
+  PYTHON_VERSION: '3.11' # Python version to use
 
 jobs:
   build:
@@ -54,7 +50,7 @@ jobs:
       name: 'Production'
       url: ${{ steps.deploy-to-function.outputs.webapp-url }}
     permissions:
-      id-token: write #This is required for requesting the JWT
+      id-token: write # This is required for requesting the JWT
 
     steps:
       - name: Download artifact from build job
@@ -68,9 +64,7 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_BB837DFDC63D4DC9AB899D3BF1ACE8CE }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_60A28592D2F94345B500EDD10640C3E9 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_E7F0649C893A43FB96D7CFE9A167D60F }}
+          enable-AzPSSession: true # Optional, allows use of Azure PowerShell module
 
       - name: 'Deploy to Azure Functions'
         uses: Azure/functions-action@v1
@@ -81,4 +75,3 @@ jobs:
           package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
           scm-do-build-during-deployment: true
           enable-oryx-build: true
-          
