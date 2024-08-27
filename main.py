@@ -7,11 +7,18 @@ from Utils.Domain_Based_Features import *
 from Utils.HTML_JS_Based_Features import *
 import whois
 from urllib.error import URLError
+import time
 
 st.set_page_config(
     page_title="URL Feature Extraction and Prediction",
     page_icon="images/favicon/favicon-32x32.png"
 )
+
+# Splash Screen
+st.image("images/FraudSense_logo.jpeg", width=400)
+st.markdown("<p style='text-align: center;'>Securing your web experience</p>", unsafe_allow_html=True)
+time.sleep(3)
+
 
 # Load models
 with open('Trained_models/XGBoost.pkl', 'rb') as xgboost_file:
@@ -25,13 +32,11 @@ def extract_features(url):
     
     try:
         with st.spinner("Extracting Address Bar-Based Features..."):
-            # Define the display logic for each feature
             def display_feature(label, value):
                 color = "red" if value == 1 else "green"
                 symbol = "✗" if value == 1 else "✓"
                 st.write(f"{label}: <span style='color:{color}'>{symbol}</span>", unsafe_allow_html=True)
 
-            # Extract and display features
             display_feature("Having IP", havingIP(url))
             display_feature("Having '@'", haveAtSign(url))
             display_feature("URL Length", getLength(url))
