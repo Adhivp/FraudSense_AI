@@ -8,6 +8,7 @@ import pandas as pd
 import json
 import socket
 from fuzzywuzzy import fuzz
+import os
 
 def get_dns_record(domain):
     """
@@ -22,7 +23,7 @@ def get_dns_record(domain):
     except Exception:
         return 1  
 
-def web_traffic(url, csv_file='/Users/adhivp/Desktop/FraudSense AI/Utils/Datasets/top100K_domains.csv', similarity_threshold=80):
+def web_traffic(url,csv_file=os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Datasets', 'top100K_domains.csv'), similarity_threshold=80):
     """
     Check if the domain is in the top 100k domains CSV file or is similar to any in the list.
     
