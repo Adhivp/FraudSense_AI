@@ -1,4 +1,5 @@
 # FraudSense AI - URL Feature Extraction and Prediction
+Deployed Link - (https://fraudsense-ai.onrender.com) , It may take upto 1 minute to load up intially as it's deployed on a free service
 
 Welcome to **FraudSense AI**, a Streamlit-based application designed to analyze URLs and predict their safety using advanced machine learning models. The app helps in detecting potentially malicious websites by extracting and evaluating multiple features from the URL.
 
