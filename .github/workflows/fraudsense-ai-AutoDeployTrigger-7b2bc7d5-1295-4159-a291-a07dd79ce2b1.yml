@@ -43,5 +43,6 @@ jobs:
           containerAppName: fraudsense-ai
           resourceGroup: FraudSense-AI_group
           imageToBuild: <acr-name>.azurecr.io/fraudsense-ai:${{ github.sha }}
+          targetPort: 8501
 
 
