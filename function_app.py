@@ -10,7 +10,7 @@ def FraudSenseTrigger(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
 
     # Start the Streamlit app as a subprocess
-    subprocess.Popen(["streamlit", "run", "main.py", "--server.port=8501", "--server.address=0.0.0.0"])
+    subprocess.Popen(["streamlit", "run", "main.py"])
 
     # Return a confirmation response that the Streamlit app has been triggered
     return func.HttpResponse(
